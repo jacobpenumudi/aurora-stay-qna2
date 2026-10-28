@@ -25,18 +25,13 @@ def generate(query, retrieved_chunks,model) -> str:
     {retrieved_chunks}
 
     Rules:
-    1. Use only information explicitly supported by the retrieved policy information.
-    2. Do not use outside knowledge, assumptions, or information not present in the retrieved policy information.
-    3. Include all relevant information needed to answer the query completely.
-    4. Do not omit important conditions, exclusions, limitations, exceptions, or coverage details.
-    5. Focus only on information directly relevant to the user's query.
-    6. Do not include unrelated information from the retrieved policy information.
-    7. Answer the user's specific question directly and ensure the response addresses what was asked.
-    8. Keep the answer concise, clear, and easy to understand.
-    9. Do not invent fees, times, deadlines, property names, conditions, or exceptions.
-    10. If the information is insufficient, say:
-        "The available policy documents do not contain enough information to answer this question."
-        If the retrieved information conflicts, clearly mention the conflict.
+    1. Answer the user's question directly in the first sentence, using ONLY the retrieved policy information.
+    2. Then add only the conditions, fees, deadlines or exceptions needed to apply that answer; quote exact figures and name the property or rate plan they apply to.
+    3. Ignore retrieved text that is not about the question; do not mention unrelated policies.
+    4. Do not use outside knowledge and never invent fees, times, deadlines or conditions.
+    5. If only part of the question is covered, answer that part and say briefly which part the documents do not cover.
+    6. Only if nothing relevant was retrieved, respond exactly: "The available policy documents do not contain enough information to answer this question."
+    7. Keep the answer concise (about 2-5 sentences or short bullets) so hotel staff can relay it to a guest.
 
     Answer:
     """
